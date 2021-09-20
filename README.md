@@ -15,10 +15,10 @@ Helper modules are:
 This code was written and tested in Python 3. A worked out example of the toy model effective potential can be found in main.py. 
 
 ## Table of Contents 
-1. [Transition Dynamics](#Transition_Dynamics)
-2. [Energy Budget](#Energy_Budget)
-3. [Sound Shell Model](#Sound_Shell_Model)
-4. [Toy Model](#Toy_Model)
+1. [Transition Dynamics](#Transition-Dynamics)
+2. [Energy Budget](#Energy-Budget)
+3. [Sound Shell Model](#Sound-Shell-Model)
+4. [Toy Model](#Toy-Model)
 5. [Main](#Main)
 6. [Tests](#Tests)
 
