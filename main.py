@@ -80,6 +80,7 @@ if __name__ == "__main__":
         nT=101
     )
     dicTD = TD(pT["T"])
+    print(dicTD["T_n"], dicTD["T_p"], dicTD["T_f"])
     make_TD_plots(dicTD, path="figures/transition_dynamics.png")
 
     alphaT = interpolate.interp1d(pT["T"], pT[r"\alpha(T)"], kind="cubic")
