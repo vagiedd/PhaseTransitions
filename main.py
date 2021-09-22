@@ -80,7 +80,6 @@ if __name__ == "__main__":
         nT=101
     )
     dicTD = TD(pT["T"])
-    print(dicTD["T_n"], dicTD["T_p"], dicTD["T_f"])
     make_TD_plots(dicTD, path="figures/transition_dynamics.png")
 
     alphaT = interpolate.interp1d(pT["T"], pT[r"\alpha(T)"], kind="cubic")
@@ -94,7 +93,7 @@ if __name__ == "__main__":
     SSM = soundshell.SoundShellModel(xi=xi, v=v, w=w, e=e, vw=vw)
 
     kR = np.logspace(-1, 3, 25, endpoint=True)
-    Pgw = SSM.Pgw_prime(kR, njobs=5)
+    Pgw, Pv = SSM.Pgw_prime(kR, return_Pv=True, njobs=5)
     make_plot(
         kR, Pgw, 
         path="figures/Pgw_prime.png",

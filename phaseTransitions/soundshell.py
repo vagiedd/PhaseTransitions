@@ -78,10 +78,11 @@ class SoundShellModel:
         Pgw = 1.0/(4*np.pi*y*self.cs)*((1.0 - self.cs**2)/(self.cs**2))**2*integrate.simps(I(z),z)
         return 3*(self.Gamma*Uf**2)**2*y**3/(2*np.pi**2)*Pgw
 
-    def Pgw_prime(self, kR, **kwargs):
+    def Pgw_prime(self, kR, return_Pv = False, **kwargs):
         zm = kR[0]*(1.0 - self.cs)/(2.0*self.cs)
         zp = kR[-1]*(1.0 + self.cs)/(2.0*self.cs)
         z = np.logspace(np.log10(zm), np.log10(zp), len(kR), endpoint=True)
         Pv = interpolate.interp1d(z, self.Pv(z, **kwargs), kind="cubic")
         Uf1d = self.Uf1d(kR)
-        return [self._Pgw_prime(_kR, Pv, Uf1d, len(kR)) for _kR in kR]
+        Pgw_prime = [self._Pgw_prime(_kR, Pv, Uf1d, len(kR)) for _kR in kR]
+        return (Pgw_prime, Pv(kR)) if return_Pv else Pgw_prime
